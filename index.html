@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>indiocart – Launching Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+```
+:root {
+--cream: #FAF7F2;
+--warm-white: #FFFFFF;
+--saffron: #E8832A;
+--saffron-light: #F5A44A;
+--saffron-pale: #FFF0E0;
+--text-dark: #1A1209;
+--text-mid: #5C4A2A;
+--text-light: #9C8060;
+--border: #EDE5D8;
+}
+
+html, body {
+height: 100%;
+font-family: 'DM Sans', sans-serif;
+background: var(--cream);
+color: var(--text-dark);
+overflow-x: hidden;
+}
+
+/* Decorative background pattern */
+body::before {
+content: '';
+position: fixed;
+inset: 0;
+background-image:
+radial-gradient(circle at 15% 15%, rgba(232,131,42,0.07) 0%, transparent 50%),
+radial-gradient(circle at 85% 80%, rgba(232,131,42,0.06) 0%, transparent 45%),
+radial-gradient(circle at 50% 50%, rgba(245,164,74,0.03) 0%, transparent 70%);
+pointer-events: none;
+z-index: 0;
+}
+
+/* Top decorative border */
+.top-border {
+height: 4px;
+background: linear-gradient(90deg, var(--saffron) 0%, var(--saffron-light) 50%, var(--saffron) 100%);
+position: relative;
+z-index: 10;
+}
+
+/* Main layout */
+.wrapper {
+min-height: calc(100vh - 4px);
+display: grid;
+grid-template-rows: auto 1fr auto;
+position: relative;
+z-index: 1;
+}
+
+/* Header */
+header {
+padding: 2.5rem 3rem;
+display: flex;
+align-items: center;
+animation: fadeDown 0.8s ease both;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 0.6rem;
+text-decoration: none;
+}
+
+.logo-icon {
+width: 36px;
+height: 36px;
+background: var(--saffron);
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.1rem;
+}
+
+.logo-text {
+font-family: 'Playfair Display', serif;
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--text-dark);
+letter-spacing: -0.02em;
+}
+
+.logo-text span {
+color: var(--saffron);
+}
+
+/* Hero */
+.hero {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 2rem 2rem 4rem;
+}
+
+.eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+background: var(--saffron-pale);
+border: 1px solid rgba(232,131,42,0.25);
+color: var(--saffron);
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 0.45rem 1rem;
+border-radius: 100px;
+margin-bottom: 2.5rem;
+animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.eyebrow-dot {
+width: 6px;
+height: 6px;
+background: var(--saffron);
+border-radius: 50%;
+animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+h1 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(3rem, 8vw, 6.5rem);
+font-weight: 700;
+line-height: 1.05;
+letter-spacing: -0.03em;
+color: var(--text-dark);
+max-width: 800px;
+animation: fadeUp 0.8s 0.35s ease both;
+}
+
+h1 em {
+font-style: italic;
+color: var(--saffron);
+}
+
+.subtitle {
+margin-top: 1.75rem;
+font-size: 1.1rem;
+font-weight: 300;
+color: var(--text-light);
+max-width: 440px;
+line-height: 1.7;
+animation: fadeUp 0.8s 0.5s ease both;
+}
+
+/* Divider ornament */
+.ornament {
+margin: 3rem auto;
+display: flex;
+align-items: center;
+gap: 1rem;
+animation: fadeUp 0.8s 0.6s ease both;
+}
+
+.ornament-line {
+width: 60px;
+height: 1px;
+background: var(--border);
+}
+
+.ornament-shape {
+width: 8px;
+height: 8px;
+background: var(--saffron);
+border-radius: 2px;
+transform: rotate(45deg);
+}
+
+/* Cards row */
+.cards {
+display: flex;
+gap: 1.25rem;
+flex-wrap: wrap;
+justify-content: center;
+animation: fadeUp 0.8s 0.7s ease both;
+}
+
+.card {
+background: var(--warm-white);
+border: 1px solid var(--border);
+border-radius: 16px;
+padding: 1.5rem 2rem;
+min-width: 160px;
+text-align: center;
+box-shadow: 0 2px 12px rgba(26,18,9,0.04);
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+transform: translateY(-4px);
+box-shadow: 0 8px 30px rgba(26,18,9,0.08);
+}
+
+.card-icon {
+font-size: 1.6rem;
+margin-bottom: 0.5rem;
+}
+
+.card-label {
+font-size: 0.8rem;
+font-weight: 500;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: var(--text-light);
+}
+
+.card-value {
+font-family: 'Playfair Display', serif;
+font-size: 1.4rem;
+font-weight: 700;
+color: var(--text-dark);
+margin-top: 0.2rem;
+}
+
+/* Footer */
+footer {
+padding: 2rem 3rem;
+display: flex;
+align-items: center;
+justify-content: center;
+border-top: 1px solid var(--border);
+animation: fadeUp 0.8s 0.9s ease both;
+}
+
+.footer-text {
+font-size: 0.82rem;
+color: var(--text-light);
+letter-spacing: 0.02em;
+}
+
+.footer-text a {
+color: var(--saffron);
+text-decoration: none;
+font-weight: 500;
+}
+
+.footer-text a:hover {
+text-decoration: underline;
+}
+
+/* Floating decorative shapes */
+.deco {
+position: fixed;
+pointer-events: none;
+z-index: 0;
+}
+
+.deco-ring {
+width: 320px;
+height: 320px;
+border-radius: 50%;
+border: 1px solid rgba(232,131,42,0.1);
+top: -80px;
+right: -80px;
+}
+
+.deco-ring-2 {
+width: 200px;
+height: 200px;
+border-radius: 50%;
+border: 1px solid rgba(232,131,42,0.08);
+bottom: 60px;
+left: -50px;
+}
+
+.deco-dot-grid {
+bottom: 120px;
+right: 3%;
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: 10px;
+opacity: 0.3;
+}
+
+.deco-dot-grid span {
+display: block;
+width: 3px;
+height: 3px;
+background: var(--saffron);
+border-radius: 50%;
+}
+
+/* Animations */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+from { opacity: 0; transform: translateY(-16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+header { padding: 1.75rem 1.5rem; }
+footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+.cards { gap: 0.75rem; }
+.card { padding: 1.2rem 1.5rem; min-width: 130px; }
+}
+```
+
+</style>
+</head>
+<body>
+<div class="top-border"></div>
+
+<!-- Decorative elements -->
+
+<div class="deco deco-ring"></div>
+<div class="deco deco-ring-2"></div>
+<div class="deco deco-dot-grid">
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="wrapper">
+<!-- Header -->
+<header>
+<a href="#" class="logo">
+<div class="logo-icon">??</div>
+<span class="logo-text">indio<span>cart</span></span>
+</a>
+</header>
+
+```
+<!-- Hero -->
+<main class="hero">
+<div class="eyebrow">
+<span class="eyebrow-dot"></span>
+Something exciting is coming
+</div>
+
+<h1>We're <em>Launching</em><br>Very Soon</h1>
+
+<p class="subtitle">
+We're working hard to bring you something amazing.
+Stay tuned — great things are on their way.
+</p>
+
+<div class="ornament">
+<div class="ornament-line"></div>
+<div class="ornament-shape"></div>
+<div class="ornament-line"></div>
+</div>
+
+<div class="cards">
+<div class="card">
+<div class="card-icon">?</div>
+<div class="card-label">Status</div>
+<div class="card-value">Building</div>
+</div>
+<div class="card">
+<div class="card-icon">??</div>
+<div class="card-label">Launch</div>
+<div class="card-value">Coming Soon</div>
+</div>
+<div class="card">
+<div class="card-icon">???</div>
+<div class="card-label">Category</div>
+<div class="card-value">Shopping</div>
+</div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer>
+<p class="footer-text">© 2025 indiocart · All rights reserved</p>
+</footer>
+```
+
+</div>
+</body>
+</html>
